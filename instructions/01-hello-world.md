@@ -8,8 +8,6 @@ using the traditional first program.
 These instructions assume
 you have a Python3 environment
 and a suitable text editor installed.
-If you do not
-please refer to the [initial setup instructions](00-initial-setup.md).
 
 ## Running Python interactively
 

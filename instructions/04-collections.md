@@ -92,6 +92,43 @@ True
 False
 ```
 
+## Tuples
+
+Tuples are an ordered _immutable_ collection of elements.
+They can be created with the same syntax as lists,
+but using `()` instead of `[]`.
+
+```
+>>> t = (1, "hello")
+>>> t
+(1, 'hello')
+>>> t[0]
+1
+```
+
+Immutable means once you've made a tuple,
+you can't modify its elements.
+If you try, Python will throw a `TypeError`.
+
+```
+>>> t[2] = "goodbye"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+```
+
+A cool Python feature is tuple unpacking.
+It means you unpack a tuple into multiple variables
+by separating the variable names by a ','
+
+```
+>>> num, word = t
+>>> num
+1
+>>> word
+'hello'
+```
+
 ## Sets
 
 Sets are collections of unique elements.
@@ -126,6 +163,24 @@ Note that any duplicate elements will be removed.
 {'bread', 'cheese', 'pears', 'eggs', 'marmite', 'milk', 'tomato sauce'}
 ```
 
+You can't put _any_ type of element into a set.
+If you want to put something into a set,
+it has to be immutable,
+and it also has to implement the `__hash__()` and `__eq__()`
+methods, but we'll get onto those later.
+
+What you need to know now is,
+you can put a tuple into a set
+but you can't put a list into one.
+
+```
+>>> example_set = {(1,2,3)}
+>>> example_set.add([4,5,6])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unhashable type: 'list'
+```
+
 ### Exercise - unique characters
 
 Write a function that returns
@@ -150,6 +205,8 @@ They are also created using the `{}` syntax
 and can be queried by passing a key
 into square brackets
 (in a similar way to how lists are queried by index).
+
+Dictionary keys have the same limitations that sets have.
 
 ```
 >>> asil = {"name": "Asil", "employer": "Microsoft"}
@@ -192,3 +249,9 @@ A mapping between the numbers 1 to 10 and their square roots:
 >>> { num: math.sqrt(num) for num in range(0, 5) }
 {0: 0.0, 1: 1.0, 2: 1.4142135623730951, 3: 1.7320508075688772, 4: 2.0}
 ```
+
+## Next steps
+
+Next, we'll introduce you to how to make classes
+and other cool stuff
+in [classes, objects and dunders](05-classes.md)
