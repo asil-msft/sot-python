@@ -81,6 +81,7 @@ by passing it into the built in `type()` function
 <class 'builtin_function_or_method'>
 ```
 
+
 ## Next steps
 
 After this we'll move onto [basic control flow](03-basic-control-flow.md).

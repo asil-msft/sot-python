@@ -24,7 +24,7 @@ groceries = ["bread", "eggs", "milk", "marmite"] # groceries is a list of string
 You can get a single element out of a list
 by passing its index in '[]'
 
-*NOTE:* Indices in Python are zero indexed
+*NOTE:* Indices in Python are zero indexed.
 
 ```
 >>> groceries[0]
@@ -36,6 +36,10 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 IndexError: list index out of range
 ```
+
+*NOTE:* if you query a list for an element
+in an index that isn't there,
+the operation will fail with an `IndexError`.
 
 You can loop through all elements of a list
 using the `for x in y` syntax.
@@ -148,7 +152,7 @@ into square brackets
 (in a similar way to how lists are queried by index).
 
 ```
->>> asil = {"name": "Asil", "employer": "Microsoft", "height (cm)": 168}
+>>> asil = {"name": "Asil", "employer": "Microsoft"}
 >>> asil["name"]
 'Asil'
 ```
@@ -156,15 +160,35 @@ into square brackets
 You can also add items to a dictionary using the `[]` syntax.
 
 ```
->>> asil["pronouns"] = "he/him"
+asil["height"] = 168
 >>> asil
-{'name': 'Asil', 'employer': 'Microsoft', 'height (cm)': 168, 'pronouns': 'he/him'}
+{'name': 'Asil', 'employer': 'Microsoft', 'height': 168}
 ```
 
 Its possible to nest lists into dictionaries as values.
+In fact, any Python object can be a value for a dictionary.
 
 ```
->>> asil["cats"] = ["Fluffy", "Sheru Khan"]
+>>> asil["pronouns"] = ["he", "him"]
 >>> asil
-{'name': 'Asil', 'employer': 'Microsoft', 'height (cm)': 168, 'pronouns': 'he/him', 'cats': ['Fluffy', 'Sheru Khan']}
+{'name': 'Asil', 'employer': 'Microsoft', 'height': 168, 'pronouns': ['he', 'him']}
+```
+
+## Comprehensions
+
+Comprehensions are a lightweight and versatile syntax
+for populating collections according to certain rules.
+
+They combine the collection syntax with the `for` and `if` keywords.
+
+A list of all the even numbers between 0 and 20:
+```
+>>> [i for i in range(0, 20) if i % 2 == 0]
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+A mapping between the numbers 1 to 10 and their square roots:
+```
+>>> { num: math.sqrt(num) for num in range(0, 5) }
+{0: 0.0, 1: 1.0, 2: 1.4142135623730951, 3: 1.7320508075688772, 4: 2.0}
 ```
